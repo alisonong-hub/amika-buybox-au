@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amika x Amazon AU: Amazon.com Buy Box Impact Brief</title>
+<link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400;500;600;700;800&family=STIX+Two+Text:ital,wght@0,400;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #009bff;
+    --violet: #770bff;
+    --sea: #4cc3ae;
+    --bg: #f5f6f8;
+    --deep: #00084d;
+    --surface: #ffffff;
+    --surface2: #ffffff;
+    --text: #0d0f14;
+    --muted: rgba(13,15,20,0.5);
+    --border: rgba(13,15,20,0.1);
+    --red: #d93048;
+    --amber: #c47800;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Wix Madefor Display', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 40px 0 80px;
+  }
+  .container { max-width: 860px; margin: 0 auto; padding: 0 40px; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #009bff 0%, #4a2dcc 60%, #770bff 100%);
+    padding: 48px 40px 40px;
+    margin-bottom: 48px;
+  }
+  .header .logo {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 32px;
+  }
+  .header .logo svg { width: 28px; height: 28px; }
+  .header .logo span {
+    font-size: 18px; font-weight: 700; letter-spacing: -0.02em; color: #fff;
+  }
+  .header .tag {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(255,255,255,0.65); margin-bottom: 12px;
+  }
+  .header h1 {
+    font-size: 32px; font-weight: 800; line-height: 1.2; color: #fff;
+    max-width: 600px;
+  }
+  .header .meta {
+    margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.65);
+    display: flex; gap: 24px; flex-wrap: wrap;
+  }
+
+  /* SECTIONS */
+  section { margin-bottom: 40px; }
+  h2 {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--blue); margin-bottom: 16px; padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  p { color: rgba(13,15,20,0.8); margin-bottom: 12px; }
+
+  /* CALLOUT BOX */
+  .callout {
+    background: #f0f4f8;
+    border-left: 3px solid var(--blue);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+  .callout.amber { border-left-color: var(--amber); background: #fdf7ec; }
+  .callout.red { border-left-color: var(--red); background: #fdf0f2; }
+  .callout .label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--blue); margin-bottom: 6px;
+  }
+  .callout.amber .label { color: var(--amber); }
+  .callout.red .label { color: var(--red); }
+  .callout p { margin: 0; font-size: 14px; }
+  .callout strong { color: var(--text); }
+
+  /* STAT CARDS */
+  .stat-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    margin-bottom: 24px;
+  }
+  .stat-card {
+    background: var(--surface2); border-radius: 10px;
+    padding: 20px; border: 1px solid var(--border);
+    position: relative; overflow: hidden;
+  }
+  .stat-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--blue), var(--violet));
+  }
+  .stat-card .stat-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 8px;
+  }
+  .stat-card .stat-value {
+    font-size: 28px; font-weight: 800; color: var(--text); line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-card .stat-sub {
+    font-size: 12px; color: var(--muted);
+  }
+  .stat-card.highlight .stat-value { color: var(--blue); }
+  .stat-card.warn .stat-value { color: var(--amber); }
+  .stat-card.danger .stat-value { color: var(--red); }
+
+  /* CHART AREA */
+  .chart-wrap {
+    background: var(--surface2); border-radius: 10px; border: 1px solid var(--border);
+    padding: 24px; margin-bottom: 24px;
+  }
+  .chart-title {
+    font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px;
+  }
+  .chart-sub {
+    font-size: 12px; color: var(--muted); margin-bottom: 20px;
+  }
+  .bar-chart { display: flex; flex-direction: column; gap: 10px; }
+  .bar-row {
+    display: grid; grid-template-columns: 90px 1fr 60px; gap: 12px; align-items: center;
+  }
+  .bar-label { font-size: 12px; color: var(--muted); text-align: right; }
+  .bar-track {
+    background: rgba(255,255,255,0.06); border-radius: 4px; height: 28px;
+    position: relative; overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%; border-radius: 4px;
+    background: linear-gradient(90deg, var(--blue), var(--violet));
+    display: flex; align-items: center; padding-left: 8px;
+  }
+  .bar-fill.low { background: linear-gradient(90deg, #ff4d6d, #c0392b); }
+  .bar-fill.mid { background: linear-gradient(90deg, var(--amber), #e67e22); }
+  .bar-value { font-size: 12px; font-weight: 700; color: var(--text); }
+  .bar-pct { font-size: 12px; font-weight: 700; color: var(--muted); }
+
+  /* TABLE */
+  .data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .data-table th {
+    text-align: left; font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--muted); padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .data-table td {
+    padding: 10px 12px; border-bottom: 1px solid var(--border);
+    color: rgba(13,15,20,0.8);
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: rgba(0,0,0,0.02); }
+  .bb-pill {
+    display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 700;
+  }
+  .bb-low { background: rgba(217,48,72,0.1); color: var(--red); }
+  .bb-mid { background: rgba(196,120,0,0.1); color: var(--amber); }
+  .bb-ok { background: rgba(0,155,255,0.12); color: #0078cc; }
+
+  /* SELLER SHARE */
+  .seller-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+  .seller-card {
+    background: var(--surface2); border-radius: 10px; border: 1px solid var(--border);
+    padding: 16px 20px;
+  }
+  .seller-name { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .seller-badge {
+    display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 2px 8px; border-radius: 20px; margin-bottom: 10px;
+  }
+  .badge-auth { background: rgba(76,195,174,0.12); color: #2a8a7a; }
+  .badge-unauth { background: rgba(217,48,72,0.1); color: var(--red); }
+  .seller-row { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+  .seller-row span:last-child { color: var(--text); font-weight: 600; }
+
+  /* STEPS */
+  .steps { counter-reset: step; }
+  .step {
+    display: flex; gap: 16px; margin-bottom: 16px;
+    background: var(--surface2); border-radius: 10px;
+    padding: 16px 20px; border: 1px solid var(--border);
+  }
+  .step-num {
+    width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--blue), var(--violet));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 800; color: #fff; /* intentional - on gradient bg */
+  }
+  .step-body { flex: 1; }
+  .step-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .step-detail { font-size: 12px; color: var(--muted); }
+  code {
+    background: rgba(0,155,255,0.1); color: var(--blue);
+    padding: 1px 5px; border-radius: 3px; font-family: monospace; font-size: 12px;
+  }
+
+  /* TIMELINE CHART */
+  .timeline-wrap {
+    background: var(--surface2); border-radius: 10px; border: 1px solid var(--border);
+    padding: 24px; margin-bottom: 24px;
+  }
+  .bb-line-chart {
+    display: grid; grid-template-columns: 60px 1fr; gap: 16px; align-items: end; height: 180px;
+  }
+  .y-axis { display: flex; flex-direction: column; justify-content: space-between; font-size: 11px; color: var(--muted); text-align: right; height: 140px; margin-top: 20px; }
+  .chart-area { position: relative; height: 180px; }
+  .grid-lines { position: absolute; inset: 20px 0 20px 0; display: flex; flex-direction: column; justify-content: space-between; }
+  .grid-line { border-top: 1px dashed rgba(255,255,255,0.06); }
+  svg.line-chart { width: 100%; height: 140px; overflow: visible; }
+  .month-labels { display: grid; grid-template-columns: repeat(7, 1fr); margin-top: 4px; }
+  .month-label { text-align: center; font-size: 11px; color: var(--muted); }
+
+  /* FOOTER */
+  .footer {
+    margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-left { font-size: 12px; color: var(--muted); }
+  .footer-logo { display: flex; align-items: center; gap: 8px; }
+  .footer-logo span { font-size: 14px; font-weight: 700; letter-spacing: -0.02em; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="container">
+    <div class="logo">
+<img src="data:image/jpeg;base64,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" style="width:32px;height:32px;border-radius:6px;" alt="Pattern logo">
+    </div>
+    <div class="tag">Amika x Amazon AU</div>
+    <h1>Amika AU is losing Buy Box<br>to Amazon.com</h1>
+    <p style="margin-top:16px;margin-bottom:0;font-size:16px;color:rgba(255,255,255,0.75);font-weight:400;">Amazon.com has enabled international shipments for Amika products to Australia</p>
+    <div class="meta">
+      <span>Period: Dec 2025 &ndash; May 2026 (T6M)</span>
+      <span>May 2026</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ISSUE SUMMARY -->
+  <section>
+    <h2>The Issue</h2>
+    <div class="callout red">
+      <div class="label">Root Cause</div>
+      <p>Amazon.com (Amazon US marketplace) has international shipping enabled for Amika products to Australia. When Amazon.com applies dynamic pricing and its listed price undercuts our AU price, <strong>Amazon.com wins the Buy Box instead of Pattern AU</strong>.</p>
+    </div>
+  </section>
+
+  <!-- HEADLINE NUMBERS -->
+  <section>
+    <h2>T6M Impact (Dec 2025 &ndash; May 2026)</h2>
+    <div class="stat-grid">
+      <div class="stat-card highlight">
+        <div class="stat-label">Pattern AU Buy Box</div>
+        <div class="stat-value">85.8%</div>
+        <div class="stat-sub">Overall buy box share</div>
+      </div>
+      <div class="stat-card danger">
+        <div class="stat-label">Amazon.com BB Sales (AU)</div>
+        <div class="stat-value">$8.4K</div>
+        <div class="stat-sub">Revenue lost to Amazon US in T6M</div>
+      </div>
+      <div class="stat-card warn">
+        <div class="stat-label">Total Est. Lost BB Sales</div>
+        <div class="stat-value">$23.3K</div>
+        <div class="stat-sub">All sellers combined (incl. Amazon.com)</div>
+      </div>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-label">ASINs Listed by Amazon.com</div>
+        <div class="stat-value">41</div>
+        <div class="stat-sub">Products with Amazon US presence on AU</div>
+      </div>
+      <div class="stat-card danger">
+        <div class="stat-label">ASINs Amazon.com Wins BB</div>
+        <div class="stat-value">32</div>
+        <div class="stat-sub">Products where Amazon.com beats us</div>
+      </div>
+      <div class="stat-card warn">
+        <div class="stat-label">Annualised Revenue at Risk</div>
+        <div class="stat-value">~$16.7K</div>
+        <div class="stat-sub">Based on T6M Amazon.com BB run rate</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUY BOX TREND -->
+  <section>
+    <h2>Buy Box % Trend &mdash; T6M Monthly</h2>
+    <div class="timeline-wrap">
+      <div class="chart-title">Pattern AU Buy Box % by Month (Sales-Weighted)</div>
+      <div class="chart-sub">Buy box dips correlate with Amazon.com promotional activity undercutting AU prices</div>
+
+      <!-- Hand-coded SVG line chart -->
+      <div style="position:relative; height: 200px; margin-top: 10px;">
+        <!-- Y-axis labels -->
+        <div style="position:absolute; left:0; top:0; bottom:20px; display:flex; flex-direction:column; justify-content:space-between; text-align:right; width:44px;">
+          <span style="font-size:11px;color:var(--muted);">100%</span>
+          <span style="font-size:11px;color:var(--muted);">95%</span>
+          <span style="font-size:11px;color:var(--muted);">90%</span>
+          <span style="font-size:11px;color:var(--muted);">85%</span>
+          <span style="font-size:11px;color:var(--muted);">80%</span>
+        </div>
+        <!-- Chart area -->
+        <div style="position:absolute; left:52px; right:0; top:0; bottom:20px;">
+          <svg viewBox="0 0 700 160" preserveAspectRatio="none" style="width:100%;height:100%;overflow:visible;">
+            <!-- Grid lines -->
+            <line x1="0" y1="0" x2="700" y2="0" stroke="rgba(0,0,0,0.07)" stroke-width="1"/>
+            <line x1="0" y1="40" x2="700" y2="40" stroke="rgba(0,0,0,0.07)" stroke-width="1"/>
+            <line x1="0" y1="80" x2="700" y2="80" stroke="rgba(0,0,0,0.07)" stroke-width="1"/>
+            <line x1="0" y1="120" x2="700" y2="120" stroke="rgba(0,0,0,0.07)" stroke-width="1"/>
+            <line x1="0" y1="160" x2="700" y2="160" stroke="rgba(0,0,0,0.07)" stroke-width="1"/>
+
+            <!-- Data: months Nov(95.4), Dec(91.8), Jan(89.6), Feb(90.4), Mar(93.0), Apr(89.0), May(94.1) -->
+            <!-- Scale: 80% = y160, 100% = y0, so 1% = 8px -->
+            <!-- Nov=95.4: y=(100-95.4)*8=36.8; Dec=91.8: y=65.6; Jan=89.6: y=83.2; Feb=90.4: y=76.8; Mar=93.0: y=56; Apr=89.0: y=88; May=94.1: y=47.2 -->
+            <!-- x positions: 7 points, spacing=700/6=116.7: 0,116.7,233.3,350,466.7,583.3,700 -->
+
+            <!-- Fill area under curve -->
+            <defs>
+              <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#009bff" stop-opacity="0.18"/>
+                <stop offset="100%" stop-color="#009bff" stop-opacity="0.02"/>
+              </linearGradient>
+              <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#009bff"/>
+                <stop offset="100%" stop-color="#770bff"/>
+              </linearGradient>
+            </defs>
+            <polygon points="0,36.8 116.7,65.6 233.3,83.2 350,76.8 466.7,56 583.3,88 700,47.2 700,160 0,160" fill="url(#areaGrad)"/>
+
+            <!-- Line -->
+            <polyline points="0,36.8 116.7,65.6 233.3,83.2 350,76.8 466.7,56 583.3,88 700,47.2"
+              fill="none" stroke="url(#lineGrad)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+
+            <!-- Data points -->
+            <circle cx="0" cy="36.8" r="5" fill="#009bff"/>
+            <circle cx="116.7" cy="65.6" r="5" fill="#009bff"/>
+            <circle cx="233.3" cy="83.2" r="5" fill="#ff4d6d"/>
+            <circle cx="350" cy="76.8" r="5" fill="#ffb347"/>
+            <circle cx="466.7" cy="56" r="5" fill="#4cc3ae"/>
+            <circle cx="583.3" cy="88" r="5" fill="#ff4d6d"/>
+            <circle cx="700" cy="47.2" r="5" fill="#009bff"/>
+
+            <!-- Value labels -->
+            <text x="0" y="26" text-anchor="middle" fill="#0d0f14" font-size="11" font-family="Wix Madefor Display" font-weight="700">95.4%</text>
+            <text x="116.7" y="55" text-anchor="middle" fill="#0d0f14" font-size="11" font-family="Wix Madefor Display" font-weight="700">91.8%</text>
+            <text x="233.3" y="95" text-anchor="middle" fill="#d93048" font-size="11" font-family="Wix Madefor Display" font-weight="700">89.6%</text>
+            <text x="350" y="88" text-anchor="middle" fill="#c47800" font-size="11" font-family="Wix Madefor Display" font-weight="700">90.4%</text>
+            <text x="466.7" y="45" text-anchor="middle" fill="#4cc3ae" font-size="11" font-family="Wix Madefor Display" font-weight="700">93.0%</text>
+            <text x="583.3" y="100" text-anchor="middle" fill="#d93048" font-size="11" font-family="Wix Madefor Display" font-weight="700">89.0%</text>
+            <text x="700" y="37" text-anchor="middle" fill="#0d0f14" font-size="11" font-family="Wix Madefor Display" font-weight="700">94.1%</text>
+          </svg>
+        </div>
+        <!-- X labels -->
+        <div style="position:absolute; left:52px; right:0; bottom:0; display:flex; justify-content:space-between;">
+          <span style="font-size:11px;color:var(--muted);">Nov</span>
+          <span style="font-size:11px;color:var(--muted);">Dec</span>
+          <span style="font-size:11px;color:var(--muted);">Jan</span>
+          <span style="font-size:11px;color:var(--muted);">Feb</span>
+          <span style="font-size:11px;color:var(--muted);">Mar</span>
+          <span style="font-size:11px;color:var(--muted);">Apr</span>
+          <span style="font-size:11px;color:var(--muted);">May</span>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:13px;color:var(--muted);">The buy box dips in Dec, Jan, Feb and Apr align with periods where Amazon.com pricing activity on Amika products was observed. The overall T6M average of <strong style="color:var(--text)">85.8%</strong> means the buy box has been lost approximately 14% of the time &mdash; every lost instance is a sale that leaves the AU channel entirely.</p>
+  </section>
+
+  <!-- TOP AFFECTED PRODUCTS -->
+  <section>
+    <h2>Top Products by Buy Box Loss</h2>
+    <p style="color:var(--muted);font-size:13px;margin-bottom:16px;">The following ASINs have the highest estimated revenue lost to buy box competitors (primarily Amazon.com cross-border shipping). Products with buy box below 85% are most at risk.</p>
+    <div class="chart-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>ASIN</th>
+            <th>Buy Box %</th>
+            <th>Est. Lost BB Sales</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Kure Strength Repair Mask 250ml</td>
+            <td><code>B09B8YQ6RF</code></td>
+            <td><span class="bb-pill bb-low">56.5%</span></td>
+            <td style="font-weight:700;color:var(--red);">$2,992</td>
+          </tr>
+          <tr>
+            <td>Soulfood Nourishing Mask 250ml</td>
+            <td><code>B07H3GBSC3</code></td>
+            <td><span class="bb-pill bb-mid">79.0%</span></td>
+            <td style="font-weight:700;color:var(--red);">$2,717</td>
+          </tr>
+          <tr>
+            <td>Hydro Rush Moisture Mask 250ml</td>
+            <td><code>B0CC33KQ6F</code></td>
+            <td><span class="bb-pill bb-low">56.2%</span></td>
+            <td style="font-weight:700;color:var(--red);">$2,668</td>
+          </tr>
+          <tr>
+            <td>Frizz-Me-Not Heat Protection Spray 200ml</td>
+            <td><code>B0F6VMGGG3</code></td>
+            <td><span class="bb-pill bb-mid">66.5%</span></td>
+            <td style="font-weight:700;color:var(--amber);">$2,295</td>
+          </tr>
+          <tr>
+            <td>Dream Routine Overnight Treatment 100ml</td>
+            <td><code>B09Y215JG5</code></td>
+            <td><span class="bb-pill bb-mid">80.2%</span></td>
+            <td style="font-weight:700;color:var(--amber);">$2,081</td>
+          </tr>
+          <tr>
+            <td>Curl Corps Defining Cream 200ml</td>
+            <td><code>B07H3CYRMD</code></td>
+            <td><span class="bb-pill bb-mid">83.4%</span></td>
+            <td style="font-weight:700;color:var(--amber);">$1,091</td>
+          </tr>
+          <tr>
+            <td>Midnight Mender Repair Treatment 100ml</td>
+            <td><code>B0F5Y7NPDH</code></td>
+            <td><span class="bb-pill bb-low">39.9%</span></td>
+            <td style="font-weight:700;color:var(--amber);">$991</td>
+          </tr>
+          <tr>
+            <td>The Wizard Detangling Primer 150ml</td>
+            <td><code>B0BGV5FVJN</code></td>
+            <td><span class="bb-pill bb-mid">84.5%</span></td>
+            <td style="font-weight:700;color:var(--amber);">$964</td>
+          </tr>
+          <tr>
+            <td>Blockade Heat Defence Serum 50ml</td>
+            <td><code>B07H3GCMFG</code></td>
+            <td><span class="bb-pill bb-ok">88.6%</span></td>
+            <td style="font-weight:700;">$798</td>
+          </tr>
+          <tr>
+            <td>Un.Done Texture Spray 192ml</td>
+            <td><code>B07H3CZHLG</code></td>
+            <td><span class="bb-pill bb-ok">92.7%</span></td>
+            <td style="font-weight:700;">$583</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SELLER LANDSCAPE -->
+  <section>
+    <h2>Who Is Taking the Buy Box?</h2>
+    <p style="color:var(--muted);font-size:13px;margin-bottom:16px;">Amazon.com is the single largest unauthorised buy box winner on the AU channel.</p>
+    <div class="seller-grid">
+      <div class="seller-card" style="border-color:rgba(0,155,255,0.3);">
+        <div class="seller-name">Pattern Products AU</div>
+        <span class="seller-badge badge-auth">Authorised</span>
+        <div class="seller-row"><span>Est. BB Sales</span><span>$128,081</span></div>
+        <div class="seller-row"><span>Share of Total Sales</span><span>84.6%</span></div>
+        <div class="seller-row"><span>Buy Box %</span><span>85.8%</span></div>
+      </div>
+      <div class="seller-card" style="border-color:rgba(255,77,109,0.3);">
+        <div class="seller-name">Amazon.com (Amazon US)</div>
+        <span class="seller-badge badge-unauth">Not Authorised AU</span>
+        <div class="seller-row"><span>Est. BB Sales</span><span style="color:var(--red);">$8,361</span></div>
+        <div class="seller-row"><span>Share of Total Sales</span><span>5.5%</span></div>
+        <div class="seller-row"><span>Buy Box %</span><span>5.3%</span></div>
+        <div class="seller-row"><span>ASINs Listed</span><span>41</span></div>
+        <div class="seller-row"><span>ASINs Winning BB</span><span style="color:var(--red);">32</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO FIX IT -->
+  <div style="margin: 56px 0 40px; padding-top: 48px; border-top: 2px solid var(--border);">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);margin-bottom:12px;">Action</div>
+    <h2 style="font-size:28px;font-weight:800;color:var(--text);letter-spacing:-0.02em;line-height:1.2;border:none;padding:0;text-transform:none;">Disable International Shipping<br>to AU on Amazon.com</h2>
+  </div>
+  <section>
+    <div class="callout">
+      <div class="label">Effort Level</div>
+      <p>This is a <strong>Seller Central / Vendor Central settings change</strong> &mdash; it does not require listing changes, pricing negotiation, or removal of products. It is low-effort, fully reversible, and has zero cost.</p>
+    </div>
+
+    <p style="margin-bottom:20px;font-size:13px;color:var(--muted);">The Amika US team managing the amazon.com 1P relationship can disable AU-specific international shipping by following the steps below. This prevents Amazon.com from appearing as a seller on Amazon AU listings.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Log into Amazon Seller Central (US account)</div>
+          <div class="step-detail">Use the account that manages Amika's US 1P vendor/seller relationship on amazon.com.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Navigate to Account Settings &rarr; Shipping Settings</div>
+          <div class="step-detail">Go to <code>Settings &gt; Shipping Settings &gt; International Shipping</code> or within individual product/offer settings.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Identify Australia in the international shipping destinations</div>
+          <div class="step-detail">Under international or global shipping templates, locate Australia as a destination country.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Remove / disable Australia from eligible ship-to countries</div>
+          <div class="step-detail">Uncheck or remove "Australia" from the shipping template. This will prevent Amazon.com from offering cross-border fulfillment to AU customers on Amika ASINs.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <div class="step-title">Confirm change and allow 24-48 hours to propagate</div>
+          <div class="step-detail">Amazon.com should cease appearing as a seller on Amazon AU listings within 1-2 business days of the change being saved.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:20px;">
+      <div class="label">Note for Vendor Central (1P)</div>
+      <p>If Amika's US amazon.com relationship is through Vendor Central (not Seller Central), the international shipping restriction may need to be coordinated with the Amazon US vendor manager or category team. The lever is the same, but the pathway is through a vendor contact or case rather than a self-service settings page.</p>
+    </div>
+  </section>
+
+  <!-- EXPECTED OUTCOME -->
+  <section>
+    <h2>Expected Outcome</h2>
+    <div class="stat-grid">
+      <div class="stat-card highlight">
+        <div class="stat-label">Buy Box Recovery</div>
+        <div class="stat-value">+5-6%</div>
+        <div class="stat-sub">Est. uplift in Pattern buy box rate (toward 90-92%)</div>
+      </div>
+      <div class="stat-card highlight">
+        <div class="stat-label">Revenue Recaptured (Annual)</div>
+        <div class="stat-value">~$16.7K</div>
+        <div class="stat-sub">Based on T6M Amazon.com BB run rate</div>
+      </div>
+    </div>
+    <p style="font-size:13px;color:var(--muted);">Removing Amazon.com from the AU buy box pool will improve Pattern's seller performance signals, support organic ranking, and provide cleaner reporting against AU JBP targets &mdash; at zero direct cost.</p>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-left">
+      Data source: Pattern Protect (Buy Box) &bull; T6M: Nov 2025 &ndash; May 2026
+    </div>
+    <div class="footer-logo">
+<img src="data:image/jpeg;base64,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" style="width:24px;height:24px;border-radius:4px;" alt="Pattern logo">
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
